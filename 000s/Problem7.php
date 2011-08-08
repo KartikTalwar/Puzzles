@@ -62,8 +62,6 @@ function sieve()
 }
 
 
-
-
 echo sieve();
 
 
