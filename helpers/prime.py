@@ -1,5 +1,6 @@
 
 def isPrime(n):
+    import re
     return re.match(r'^1?$|^(11+?)\1+$', '1' * n) == None
     
     
@@ -15,4 +16,24 @@ def genPrimes(n):
         
     return [2,3] + [3*i+1|1 for i in xrange(1,n/3-correction) if sieve[i]]
 
+
+def primeFactors(n):
+    factors = []
+    lastresult = n
+
+    if n == 1:
+        return [1]
+
+    while 1:
+        if lastresult == 1:
+            break
+        c = 2
+        while 1:
+            if lastresult % c == 0:
+                break
+            c += 1
+        factors.append(c)
+        lastresult /= c
+
+    return factors
 
